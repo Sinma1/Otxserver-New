@@ -528,7 +528,7 @@ local function useStamina(player)
 end
 
 local function useStaminaXp(player)
-	local staminaMinutes = player:getExpBoostStamina()
+	local staminaMinutes = player:getExpBoostStamina() / 60
 	if staminaMinutes == 0 then
 		return
 	end
@@ -551,7 +551,7 @@ local function useStaminaXp(player)
 		staminaMinutes = staminaMinutes - 1
 		nextUseXpStamina[playerId] = currentTime + 60
 	end
-	player:setExpBoostStamina(staminaMinutes)
+	player:setExpBoostStamina(staminaMinutes * 60)
 end
 
 
